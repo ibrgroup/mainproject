@@ -599,7 +599,7 @@ export const productfinancing = [
   },
   {
     imageUrl: "/img/6998fb9eqw241a46c0c079cb432b.webp",
-    title: "На сумму до 300 000 ₽",
+    title: "На сумму до 150 000 ₽",
     description: "С договором мурабаха",
   },
   {
