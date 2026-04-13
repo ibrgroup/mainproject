@@ -1155,7 +1155,7 @@ export const features = [
   },
   {
     icon: <RiProductHuntLine />,
-    title: "На сумму до 300 000 ₽",
+    title: "На сумму до 150 000 ₽",
     description: "Покупка по договору мурабаха",
   },
   {
