@@ -6,7 +6,6 @@ import CookieConsent from "@/components/shared/сookie-сonsent";
 import MainLayout from "@/components/shared/main-layout";
 import AboutCompany from "@/components/shared/about-company";
 import { ServicePrice } from "@/components/shared/service-price";
-import ServiceForm from "@/components/shared/service-form";
 
 const ServicePage: React.FC = () => {
   return (
@@ -15,7 +14,6 @@ const ServicePage: React.FC = () => {
       <ServicesSection />
       <ServicePrice />
       <AboutCompany/>
-      <ServiceForm/>
       <CookieConsent />
       <ScrollToTop />
     </MainLayout>

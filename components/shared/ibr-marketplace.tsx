@@ -6,8 +6,8 @@ import { ROUTES } from "@/constants";
 const IbrMarketplaceComponent: React.FC = () => {
   return (
     <section className="bg-cyan-blue mt-10 md:mt-20 lg:rounded-none rounded-t-4xl">
-      <div className="max- m-auto relative  py-20  isolate overflow-hidden px-4 pt-10 lg:flex lg:gap-x-20 lg:pt-0">
-        <div className="max-container mx-auto max-w-full lg:mt-10">
+      <div className="max- m-auto relative isolate overflow-hidden px-4 pt-10 lg:flex lg:gap-x-20 lg:pt-0">
+        <div className="max-container mx-auto max-w-full ">
           <div className="flex flex-col lg:flex-row justify-between items-center">
              <ParagraphSize
                 className="text-white md:hidden block text-center font-sans text-balancetext-4xl font-bold tracking-tight text-4xl lg:text-6xl"
@@ -15,10 +15,11 @@ const IbrMarketplaceComponent: React.FC = () => {
                 size="xl"
               />
             <img
-              className="object-cover h-auto"
-              width={600}
-              height={600}
-              src="/6998fba11a46c0c079cb434f.webp"
+              className="object-cover md:block hidden h-auto"
+              width={450}
+              height={450}
+              src="/dddd.png"
+              // 6998fba11a46c0c079cb434f.webp
               alt="Manager"
               loading="lazy"
             />
@@ -39,6 +40,16 @@ const IbrMarketplaceComponent: React.FC = () => {
                 title="Подробнее"
               />
             </div>
+
+             <img
+              className="object-cover block md:hidden h-auto"
+              width={450}
+              height={450}
+              src="/dddd.png"
+              // 6998fba11a46c0c079cb434f.webp
+              alt="Manager"
+              loading="lazy"
+            />
           </div>
         </div>
         <svg

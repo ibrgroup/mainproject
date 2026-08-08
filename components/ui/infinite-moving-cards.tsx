@@ -71,7 +71,8 @@ export const InfiniteMovingCards: React.FC<Props> = ({
           className="flex w-max shrink-0 flex-nowrap gap-8 md:gap-10 py-4 mt-10 animate-scroll"
         >
           {items.map(({ title, image, price }) => (
-            <li
+           <a key={title} href="https://ibr-market.vercel.app" target="_blank">
+             <li
               key={title}
               className="relative w-[280px] max-w-full rounded-4xl bg-white"
             >
@@ -103,6 +104,7 @@ export const InfiniteMovingCards: React.FC<Props> = ({
                 </div>
               </blockquote>
             </li>
+           </a>
           ))}
         </ul>
       </div>

@@ -11,7 +11,7 @@ export const data = [
     {
       category: "112 999 ₽",
       price: "10 265 ₽ х 12",
-      title: "Смартфон Apple iPhone 17 Pro Max 512 ГБ серебристый",
+      title: "Смартфон Apple iPhone 15 Pro Max 512 ГБ серебристый",
       src: "https://tasnim.ing/wp-content/uploads/2025/01/smartfon-apple-iphone-15-pro-max-natural-titanium-1-600x600.jpg",
       content: <DummyContent />,
     },

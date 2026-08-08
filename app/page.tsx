@@ -12,7 +12,7 @@ import { WebSiteJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "IBR-GROUP | Исламская рассрочка и финансовые услуги",
   description:
-    "IBR-GROUP: рассрочка без процентов, маркетплейс IBR MARKET, партнёрство и банковские услуги по нормам шариата. Честные условия, прозрачные сделки.",
+    "IBR-GROUP: рассрочка без процентов, маркетплейс ibrmarket, партнёрство и банковские услуги по нормам шариата. Честные условия, прозрачные сделки.",
   openGraph: {
     title: "IBR-GROUP | Исламская рассрочка без процентов",
     description:

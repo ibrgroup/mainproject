@@ -7,7 +7,7 @@ import Image from 'next/image'
 const ServiceMain: React.FC = () => {
   return (
     <section className="bg-cyan-blue rounded-b-4xl font-montserrat">
-      <div className="max-container m-auto relative isolate overflow-hidden px-6 pt-16 lg:flex lg:gap-x-20 lg:pt-0">
+      <div className="max-container m-auto relative isolate overflow-hidden pt-16 lg:flex lg:gap-x-20 lg:pt-0">
         <svg
           viewBox="0 0 1024 1024"
           aria-hidden="true"

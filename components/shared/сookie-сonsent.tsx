@@ -26,7 +26,7 @@ const CookieConsent = ({ onAccept }: CookieConsentProps) => {
   return showCookieBanner === null ? null : (
     <>
       {showCookieBanner && (
-        <div className="cookie-banner rounded-2xl fixed bottom-5 w-fit left-50 right-50 m-10 w-fit bg-gray-800 text-white p-4 z-50">
+        <div className="cookie-banner rounded-2xl fixed bottom-5 w-fit left-50 right-50 m-10 bg-gray-800 text-white p-4 z-50">
           <h4 className="max-w-md text-[14px]">
             Мы используем файлы cookie для улучшения вашего опыта на сайте.
             Продолжая просмотр, вы соглашаетесь с нашей политикой

@@ -17,7 +17,7 @@ const AdditionalServices: React.FC = () => {
             className="object-cover"
             width={600}
             height={600}
-            src="/6998fb981a46c0c079cb42f5.webp"
+            src="/IMG_092.png"
             alt="Дополнительные услуги"
             loading="lazy"
           />

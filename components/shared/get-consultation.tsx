@@ -1,186 +1,200 @@
-"use client";
+'use client';
 
-import React, { useState} from "react";
-import { ParagraphSize } from "./paragraph";
-import { InputMask } from "primereact/inputmask";
-import { motion, AnimatePresence } from "framer-motion"; 
-import { Button } from "@heroui/react";
+import React, { useRef, useState, useEffect } from 'react';
+import { Button } from '@heroui/react';
+import { Checkbox } from '@headlessui/react';
+import { InputMask } from 'primereact/inputmask';
+import { AnimatePresence, motion } from 'framer-motion';
+import { CheckIcon } from 'lucide-react';
+import { ParagraphSize } from './paragraph';
+import { IoClose } from 'react-icons/io5';
 
-interface SuccessModalProps {
-  open: boolean;
-  handleClose: () => void;
+// Хук для клика вне
+function useOutsideClick(ref: React.RefObject<HTMLElement>, handler: () => void) {
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (ref.current && !ref.current.contains(event.target as Node)) {
+				handler();
+			}
+		};
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, [ref, handler]);
 }
 
-// Модальное окно успеха
-const SuccessModal: React.FC<SuccessModalProps> = ({ open, handleClose }) => {
-  if (!open) return null;
-
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 px-4 z-50 h-screen overflow-auto"
-      >
-        <div className="fixed inset-0 h-full w-full bg-black/80 bg-opacity-80 backdrop-blur-lg" />
-        <div className="relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-white p-4 font-sans md:p-10 dark:bg-neutral-900">
-          <button
-            className="sticky top-4 right-0 ml-auto text-white flex h-8 w-8 items-center justify-center rounded-full bg-black"
-            onClick={handleClose}
-          >
-            X
-          </button>
-          <p className="text-base font-medium text-gray-800">
-            Спасибо за заявку!
-          </p>
-          <h1 className="mt-4 text-2xl font-semibold text-gray-800 md:text-5xl">
-            Менеджер свяжется с вами скоро!
-          </h1>
-          <div className="py-10 flex items-center gap-1">
-            <img className="rounded-2xl" src="/logo.webp" alt="Описание GIF" width={60} height={60} />
-            <h4 className="font-bold text-xl text-gray-800 font-saira">IBR GROUP</h4>
-          </div>
-        </div>
-      </motion.div>
-    </AnimatePresence>
-  );
-};
-
-interface FormData {
-  name: string;
-  phone: string;
+interface Errors {
+	fullName?: string;
+	phone?: string;
+	terms?: string;
 }
 
-interface ErrorState {
-  nameError: boolean;
-  phoneError: boolean;
+export default function GetConsultation() {
+	const [fullName, setFullName] = useState('');
+	const [phone, setPhone] = useState('');
+	const [termsAccepted, setTermsAccepted] = useState(false);
+	const [errors, setErrors] = useState<Errors>({});
+	const [open, setOpen] = useState(false);
+	const formRef = useRef<HTMLFormElement>(null);
+	const modalRef = useRef<HTMLDivElement>(null);
+
+	// Для закрытия модального при клике вне
+	// @ts-ignore
+	useOutsideClick(modalRef, () => setOpen(false));
+
+	const handleClose = () => setOpen(false);
+
+	// Функция отправки формы через API
+	const handleFormSubmission = async () => {
+		const formData = new FormData();
+		formData.append('name', fullName);
+		formData.append('phone', phone); // добавляем номер телефона из состояния
+		formData.append('access_key', 'd114fdda-87d3-41db-8fd6-e971022307d6');
+
+		try {
+			const response = await fetch('https://api.web3forms.com/submit', {
+				method: 'POST',
+				body: formData,
+			});
+
+			const data = await response.json();
+			if (data.success) {
+				if (formRef.current) {
+					formRef.current.reset();
+				}
+				setFullName('');
+				setPhone('');
+				setTermsAccepted(false);
+				setErrors({});
+				setOpen(true);
+			} else {
+				alert('Ошибка при отправке: ' + data.message);
+			}
+		} catch (error) {
+			alert('Произошла ошибка: ' + error);
+		}
+	};
+
+	const validateForm = () => {
+		const newErrors: Errors = {};
+		if (!fullName.trim()) newErrors.fullName = 'ФИО обязательно заполнить';
+		if (!phone.trim()) newErrors.phone = 'Введите номер телефона';
+		if (!termsAccepted) newErrors.terms = 'Вы должны согласиться с условиями';
+
+		setErrors(newErrors);
+		return Object.keys(newErrors).length === 0;
+	};
+
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		if (validateForm()) {
+			handleFormSubmission();
+		}
+	};
+
+	return (
+		<div className="max-w-[850px] px-4 m-auto">
+			<div id="BecomePartner"></div>
+			<ParagraphSize
+				className="text-gray-800 md:mt-20 mt-10 text-center font-sans max-w-lg m-auto text-balance font-bold tracking-tight text-4xl lg:text-6xl"
+				text="Получить консультацию"
+				size="xl"
+			/>
+			{/* Ваша форма */}
+			<form
+				className="bg-gray-100 p-8 rounded-4xl my-10 mb-20"
+				ref={formRef}
+				onSubmit={handleSubmit}
+				noValidate>
+				{/* ФИО */}
+				<label className="flex flex-col w-full p-4 bg-white mt-3 relative rounded-2xl border hover:border-black transition-all border-gray-100">
+					<input
+						type="text"
+						placeholder="ФИО"
+						className=" outline-none"
+						value={fullName}
+						onChange={(e) => setFullName(e.target.value)}
+						name="fullName"
+						required
+					/>
+				</label>
+				{errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+
+				{/* Телефон */}
+				<label className="flex flex-col w-full p-4 bg-white mt-3 relative rounded-2xl border hover:border-black transition-all border-gray-100 ">
+					<InputMask
+						className=" outline-none"
+						placeholder="+7 (___) ___-__-__"
+						mask="+7 (999) 999-99-99"
+						value={phone}
+						onChange={(e) => setPhone(e.target.value ?? '')}
+						name="phone"
+					/>
+				</label>
+				{errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+				{/* Согласие */}
+				<div className="flex items-center mt-3">
+					<Checkbox
+						id="terms"
+						checked={termsAccepted}
+						onChange={() => setTermsAccepted(!termsAccepted)}
+						className={`group outline-none w-8 rounded-md h-7 cursor-pointer border border-[#57cfcb]
+          ${termsAccepted ? 'bg-tiffany' : 'bg-white/10'} transition duration-200`}>
+						<CheckIcon
+							className={`hidden text-white m-auto justify-center items-center group-data-[checked]:block`}
+						/>
+					</Checkbox>
+					<label className="text-sm ml-2">
+						Я соглашаюсь с{' '}
+						<a
+							href="/Пользовательское соглашение сервиса IBR Group.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="underline">
+							политикой конфиденциальности
+						</a>
+					</label>
+				</div>
+				{errors.terms && <p className="text-red-500 text-sm mb-4">{errors.terms}</p>}
+
+				{/* Кнопка */}
+				<div className="mt-5 md:flex items-center justify-center gap-x-6 lg:justify-start">
+					<Button
+						variant={'flat'}
+						type="submit"
+						className="w-full rounded-2xl bg-tiffany mb-5 px-8 py-7 text-sm font-bold text-white active:bg-[#5dc9c5da] shadow-sm hover:bg-[#57cfcbef]">
+						Подать заявку
+					</Button>
+				</div>
+			</form>
+
+			{/* Анимация благодарности */}
+			<AnimatePresence>
+				{open && (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+						<div
+							ref={modalRef}
+							className="absolute top-9 m-1 bg-white p-6 rounded-3xl max-w-5xl md:w-full">
+							<button
+								className="absolute bg-gray-900 p-1 text-white rounded-full top-3.5 right-3.5"
+								onClick={handleClose}>
+								<IoClose size={22} />
+							</button>
+							<p className="text-md mb-4">Спасибо за заявку!</p>
+							<p className="text-2xl font-roboto font-bold">Менеджер свяжется с вами скоро!</p>
+							<div className="mt-2 flex items-center gap-2">
+								<img className="rounded-2xl" width={60} height={60} src="/logo.webp" alt="logo" />
+								<h2 className="text-xl font-roboto font-bold text-gray-900">IBR GROUP</h2>
+							</div>
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
+		</div>
+	);
 }
-
-const GetConsultation: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    phone: "",
-  });
-  const [errors, setErrors] = useState<ErrorState>({
-    nameError: false,
-    phoneError: false,
-  });
-
-  const handleFormSubmit = async (
-    event: React.FormEvent
-  ): Promise<void> => {
-    event.preventDefault();
-
-    let hasErrors = false;
-
-    // Проверка ошибок
-    if (!formData.name.trim()) {
-      setErrors((prev) => ({ ...prev, nameError: true }));
-      hasErrors = true;
-    } else {
-      setErrors((prev) => ({ ...prev, nameError: false }));
-    }
-
-    if (!formData.phone.trim()) {
-      setErrors((prev) => ({ ...prev, phoneError: true }));
-      hasErrors = true;
-    } else {
-      setErrors((prev) => ({ ...prev, phoneError: false }));
-    }
-
-    if (hasErrors) {
-      return;
-    }
-
-    try {
-      await fetch("/api/send-consultation", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      setOpen(true);
-      setFormData({ name: "", phone: "" });
-      setErrors({ nameError: false, phoneError: false });
-    } catch (err) {
-      console.error(err);
-      alert("Ошибка при отправке формы");
-    }
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <div className="max-container px-4 m-auto py-10 md:py-20">
-      <SuccessModal open={open} handleClose={handleClose} />
-      <div id="BecomePartner"></div>
-      <ParagraphSize
-        className="text-gray-800 text-center font-sans max-w-lg m-auto text-balance font-bold tracking-tight text-4xl lg:text-6xl"
-        text="Получить консультацию"
-        size="xl"
-      />
-      <div className="bg-gray-100 md:py-16 rounded-4xl mt-10">
-        <form
-          className="w-full max-w-[700px] m-auto md:bg-white md:rounded-4xl p-6"
-          onSubmit={handleFormSubmit}
-        >
-          <label
-            className={`flex flex-col w-full p-4 bg-white md:bg-gray-100 mt-5 relative rounded-2xl border hover:border-black transition-all border-gray-100 ${
-              errors.nameError ? "border-red-500" : ""
-            }`}
-          >
-            <input
-              value={formData.name}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  name: e.target.value,
-                }))
-              }
-              className="bg-white placeholder:text-gray-800 md:bg-gray-100 outline-none"
-              type="text"
-              placeholder="ФИО"
-            />
-          </label>
-
-          <label
-            className={`flex flex-col w-full p-4 bg-white md:bg-gray-100 mt-5 relative rounded-2xl border hover:border-black transition-all border-gray-100 ${
-              errors.phoneError ? "border-red-500" : ""
-            }`}
-          >
-            <InputMask
-              value={formData.phone}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  phone: e.target.value as string,
-                }))
-              }
-              className="bg-white placeholder:text-gray-800 md:bg-gray-100 outline-none"
-              placeholder="+7 (___) ___-__-__"
-              id="phone"
-              mask="+7 (999) 999-99-99"
-            />
-          </label>
-
-          <div className="mt-5 flex items-center justify-center">
-            <Button
-              type="submit"
-              className="w-full rounded-2xl bg-tiffany mb-5 px-8 py-7 text-sm font-bold text-white active:bg-[#5dc9c5da] shadow-sm hover:bg-[#57cfcbef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Отправить заявку
-            </Button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-export default GetConsultation;

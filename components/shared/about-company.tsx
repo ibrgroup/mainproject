@@ -5,7 +5,7 @@ const AboutCompany = () => {
   return (
     <section
       id="about"
-      className="max-container mx-auto px-4 mt-10 md:mt-20 md:px-0 bg-white/50"
+      className="max-container mx-auto px-4 my-10 md:my-20 bg-white/50"
     >
       <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-8">
 
