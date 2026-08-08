@@ -1,27 +1,13 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button } from '@heroui/react';
 import { Checkbox } from '@headlessui/react';
 import { InputMask } from 'primereact/inputmask';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CheckIcon } from 'lucide-react';
 import { IoClose } from 'react-icons/io5';
-
-// Хук для клика вне
-function useOutsideClick(ref: React.RefObject<HTMLElement>, handler: () => void) {
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			if (ref.current && !ref.current.contains(event.target as Node)) {
-				handler();
-			}
-		};
-		document.addEventListener('mousedown', handleClickOutside);
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
-		};
-	}, [ref, handler]);
-}
+import { useOutsideClick } from '@/hooks/use-outside-click';
 
 interface Errors {
 	fullName?: string;
@@ -38,8 +24,6 @@ export default function CreditForm() {
 	const formRef = useRef<HTMLFormElement>(null);
 	const modalRef = useRef<HTMLDivElement>(null);
 
-	// Для закрытия модального при клике вне
-	// @ts-ignore
 	useOutsideClick(modalRef, () => setOpen(false));
 
 	const handleClose = () => setOpen(false);
