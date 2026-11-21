@@ -77,7 +77,7 @@ export const ContributionAmountInput: React.FC<{
         />
       </label>
       <figcaption className="flex justify-between mt-2">
-        <div className="absolute left-0 top-[4.5rem] text-xs">250 тыс.</div>
+        <div className="absolute left-0 top-[4.5rem] text-xs">100 тыс.</div>
         <div className="absolute right-0 top-[4.5rem] text-xs">3 млн.</div>
       </figcaption>
     </figure>

@@ -785,7 +785,7 @@ export const cardDataInfo = [
 		colSpan: 'md:col-span-3',
 	},
 	{
-		title: 'От 250 000 ₽',
+		title: 'От 100 000 ₽',
 		description:
 			'Доступный порог входа. Максимальная сумма одного договора — 3 000 000 ₽, при необходимости можно заключить несколько договоров.',
 		bgColor: 'bg-gray-100',
@@ -841,7 +841,7 @@ export const cardslist2 = [
 ];
 
 export const INVEST_RATE = 0.16;
-export const INVEST_MIN_AMOUNT = 250000;
+export const INVEST_MIN_AMOUNT = 100000;
 export const INVEST_MAX_AMOUNT = 3000000;
 
 export const investFeatures = [
@@ -881,7 +881,7 @@ export const investFaq = [
 	{
 		title: 'Какая минимальная и максимальная сумма?',
 		content:
-			'Минимальная сумма — 250 000 ₽, максимальная по одному договору — 3 000 000 ₽. Для больших сумм можно заключить несколько договоров.',
+			'Минимальная сумма — 100 000 ₽, максимальная по одному договору — 3 000 000 ₽. Для больших сумм можно заключить несколько договоров.',
 	},
 	{
 		title: 'Как выплачивается прибыль?',
@@ -1090,7 +1090,7 @@ export const recommendation = [
 		id: 5,
 		title: 'IBR Invest',
 		description: 'Инвестируйте по нормам шариата с ожидаемой доходностью до 16% годовых',
-		imageUrl: '/invest.webp',
+		imageUrl: '/invest-rate.svg',
 		altText: 'Инвестиции IBR Invest',
 		item: { link: ROUTES.ibrInvest },
 	},
