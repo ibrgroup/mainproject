@@ -28,21 +28,17 @@ export const ContributionAmountInput: React.FC<{
     }
   };
 
+  const commitCount = () => {
+    const numericValue = parseNumber(countInput);
+    const valueToSet = Math.min(Math.max(numericValue, INVEST_MIN_AMOUNT), INVEST_MAX_AMOUNT);
+
+    setCount(valueToSet);
+    setCountInput(formatNumber(valueToSet));
+    onChange(valueToSet);
+  };
+
   const handleInputCount = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      const numericValue = parseNumber(countInput);
-
-      let valueToSet = numericValue;
-      if (numericValue > INVEST_MAX_AMOUNT) {
-        valueToSet = INVEST_MAX_AMOUNT;
-      } else if (numericValue < INVEST_MIN_AMOUNT) {
-        valueToSet = INVEST_MIN_AMOUNT;
-      }
-
-      setCount(valueToSet);
-      setCountInput(formatNumber(valueToSet));
-      onChange(valueToSet);
-    }
+    if (event.key === "Enter") commitCount();
   };
 
   React.useEffect(() => {
@@ -57,6 +53,7 @@ export const ContributionAmountInput: React.FC<{
           value={countInput}
           onChange={handleChangeCount}
           onKeyDown={handleInputCount}
+          onBlur={commitCount}
           className="bg-[#FFFFFF] [-moz-appearance:_textfield] outline-none font-bold"
           type="text"
           inputMode="numeric"
