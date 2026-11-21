@@ -48,7 +48,7 @@ const IbrInvestHero: React.FC = () => {
 					<Image
 						className="object-cover m-auto max-w-sm w-full lg:max-w-md"
 						src="/invest.webp"
-						alt="Доходность до 21% годовых"
+						alt="Доходность до 16% годовых"
 						width={800}
 						height={800}
 						priority

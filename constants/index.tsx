@@ -777,7 +777,7 @@ export const investigation = [
 
 export const cardDataInfo = [
 	{
-		title: 'Доходность до 21% годовых',
+		title: 'Доходность до 16% годовых',
 		description:
 			'Прибыль формируется от реальной торговой деятельности компании и распределяется между инвестором и IBR GROUP в заранее согласованной пропорции.',
 		bgColor: 'bg-cyan-blue',
@@ -840,14 +840,14 @@ export const cardslist2 = [
 	},
 ];
 
-export const INVEST_RATE = 0.21;
+export const INVEST_RATE = 0.16;
 export const INVEST_MIN_AMOUNT = 250000;
 export const INVEST_MAX_AMOUNT = 3000000;
 
 export const investFeatures = [
 	{
 		icon: <GiReceiveMoney />,
-		title: 'До 21% годовых',
+		title: 'До 16% годовых',
 		description: 'Ожидаемая доходность',
 	},
 	{
@@ -876,7 +876,7 @@ export const investFaq = [
 	{
 		title: 'Гарантирована ли доходность?',
 		content:
-			'Нет. По нормам шариата гарантированный процент запрещён, поэтому 21% — это ожидаемая доходность, рассчитанная по результатам прошлых периодов. Фактическая прибыль зависит от результатов деятельности компании.',
+			'Нет. По нормам шариата гарантированный процент запрещён, поэтому 16% — это ожидаемая доходность, рассчитанная по результатам прошлых периодов. Фактическая прибыль зависит от результатов деятельности компании.',
 	},
 	{
 		title: 'Какая минимальная и максимальная сумма?',
@@ -1089,7 +1089,7 @@ export const recommendation = [
 	{
 		id: 5,
 		title: 'IBR Invest',
-		description: 'Инвестируйте по нормам шариата с ожидаемой доходностью до 21% годовых',
+		description: 'Инвестируйте по нормам шариата с ожидаемой доходностью до 16% годовых',
 		imageUrl: '/invest.webp',
 		altText: 'Инвестиции IBR Invest',
 		item: { link: ROUTES.ibrInvest },
