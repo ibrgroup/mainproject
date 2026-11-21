@@ -19,6 +19,7 @@ import { GoChevronRight } from "react-icons/go";
 import { IoClose } from "react-icons/io5";
 import { LuPhoneCall } from "react-icons/lu";
 import { FiUserCheck } from "react-icons/fi";
+import { GiReceiveMoney } from "react-icons/gi";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -176,6 +177,11 @@ export default function Navbar() {
                   ROUTES.ibrmarket,
                   "Маркетплейс",
                   <HiOutlineShoppingBag size={22} />,
+                )}
+                {renderMobileLink(
+                  ROUTES.ibrInvest,
+                  "Инвестиции",
+                  <GiReceiveMoney size={22} />,
                 )}
                 {renderMobileLink(
                   ROUTES.becomePartner,

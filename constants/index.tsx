@@ -6,6 +6,8 @@ import { MdProductionQuantityLimits } from 'react-icons/md';
 import { RiProductHuntLine } from 'react-icons/ri';
 import { FaWpforms } from 'react-icons/fa6';
 import { LiaQuestionSolid } from 'react-icons/lia';
+import { GiReceiveMoney } from 'react-icons/gi';
+import { LuHandshake, LuScale, LuCalendarClock } from 'react-icons/lu';
 
 export const testimonialsMoving = [
 	{
@@ -775,83 +777,121 @@ export const investigation = [
 
 export const cardDataInfo = [
 	{
-		title: 'Гарантированная прибыль',
+		title: 'Доходность до 21% годовых',
 		description:
-			'21% годовых — одна из самых высоких долей на рынке, что позволяет вам получать максимальную выгоду от ваших вложений.',
-		imageUrl: '/9.png',
+			'Прибыль формируется от реальной торговой деятельности компании и распределяется между инвестором и IBR GROUP в заранее согласованной пропорции.',
 		bgColor: 'bg-cyan-blue',
 		textColor: 'text-white',
-		colSpan: 'col-span-2',
-		rowSpan: 'row-span-2',
+		colSpan: 'md:col-span-3',
 	},
 	{
-		title: 'Минимальная сумма вклада',
+		title: 'От 250 000 ₽',
 		description:
-			'250,000 рублей — доступный порог для начала инвестирования, который открывает перед вами новые финансовые возможности.',
-		imageUrl: '/10.png',
-		bgColor: 'bg-[#E2E8F0]',
-		textColor: 'text-black',
-		colSpan: 'col-span-2',
-		rowSpan: 'row-span-2',
+			'Доступный порог входа. Максимальная сумма одного договора — 3 000 000 ₽, при необходимости можно заключить несколько договоров.',
+		bgColor: 'bg-gray-100',
+		textColor: 'text-gray-800',
+		colSpan: 'md:col-span-3',
 	},
 	{
-		title: 'Срок вклада',
-		description: 'Вы можете выбрать срок, который наиболее подходит для ваших финансовых целей.',
-		imageUrl: '/11.png',
-		bgColor: 'bg-[#E2E8F0]',
-		textColor: 'text-black',
-		colSpan: 'md:col-span-2 col-span-3',
-		rowSpan: 'md:row-span-3 row-span-2',
+		title: 'Срок от 3 месяцев до 3 лет',
+		description: 'Выберите срок, который подходит под ваши финансовые цели.',
+		bgColor: 'bg-gray-100',
+		textColor: 'text-gray-800',
+		colSpan: 'md:col-span-2',
 	},
 	{
-		title: 'Выплата вознаграждения',
-		description: 'Гибкие условия, которые позволяют вам получать доход в удобное для вас время.',
-		imageUrl: '/12.png',
-		bgColor: 'bg-[#E2E8F0]',
-		textColor: 'text-black',
-		colSpan: 'md:col-span-2 col-span-3',
-		rowSpan: 'md:row-span-3 row-span-2',
+		title: 'Выплата прибыли',
+		description: 'Ежемесячно, ежеквартально или в конце срока — по вашему выбору при заключении договора.',
+		bgColor: 'bg-gray-100',
+		textColor: 'text-gray-800',
+		colSpan: 'md:col-span-2',
 	},
 	{
-		title: 'Форма участия',
+		title: 'Договор мудараба',
 		description:
-			'Вы можете выбрать форму участия, которая соответствует вашим инвестиционным предпочтениям и принципам шариата.',
-		imageUrl: '/13.png',
-		bgColor: 'bg-[#E2E8F0]',
-		textColor: 'text-black',
-		colSpan: 'md:col-span-2 col-span-3',
-		rowSpan: 'md:row-span-3 row-span-2',
+			'Партнёрство в прибыли без процентов (риба). Все условия фиксируются в договоре и соответствуют нормам шариата.',
+		bgColor: 'bg-tiffany',
+		textColor: 'text-white',
+		colSpan: 'md:col-span-2',
 	},
 ];
 
 export const cardslist2 = [
 	{
 		id: 1,
-		image:
-			'http://localhost:3000/_next/image?url=http%3A%2F%2Flocalhost%3A3000%2F_next%2Fimage%3Furl%3D%252F_next%252Fstatic%252Fmedia%252Fcontribution.375be85f.png%26w%3D640%26q%3D75&w=384&q=75',
-		title: 'Свяжитесь с нами',
-		description: ' Позвоните или напишите нашим специалистам, чтобы получить консультацию.',
-		bgColor: 'bg-[#041121]',
+		title: 'Оставьте заявку',
+		description: 'Заполните форму на сайте или позвоните нам — менеджер ответит на все вопросы.',
+		bgColor: 'bg-cyan-blue',
 		textColor: 'text-white',
 	},
 	{
 		id: 2,
-		image:
-			'http://localhost:3000/_next/image?url=http%3A%2F%2Flocalhost%3A3000%2F_next%2Fimage%3Furl%3D%252F_next%252Fstatic%252Fmedia%252Fcontribution.375be85f.png%26w%3D640%26q%3D75&w=384&q=75',
-		title: 'Заполните заявку',
-		description: 'Вы можете заполнить форму на нашем сайте для предварительного рассмотрения.',
+		title: 'Выберите условия',
+		description: 'Вместе с менеджером определите сумму, срок и периодичность выплаты прибыли.',
 		bgColor: 'bg-gray-100',
 		textColor: 'text-gray-800',
 	},
 	{
 		id: 3,
-		image:
-			'http://localhost:3000/_next/image?url=http%3A%2F%2Flocalhost%3A3000%2F_next%2Fimage%3Furl%3D%252F_next%252Fstatic%252Fmedia%252Fcontribution.375be85f.png%26w%3D640%26q%3D75&w=384&q=75',
 		title: 'Подпишите договор',
-		description:
-			'После одобрения вы подпишете договор, в котором будут указаны все условия вашего вклада.',
+		description: 'Подпишите договор мудараба, в котором зафиксированы все условия инвестирования.',
 		bgColor: 'bg-gray-100',
 		textColor: 'text-gray-800',
+	},
+];
+
+export const INVEST_RATE = 0.21;
+export const INVEST_MIN_AMOUNT = 250000;
+export const INVEST_MAX_AMOUNT = 3000000;
+
+export const investFeatures = [
+	{
+		icon: <GiReceiveMoney />,
+		title: 'До 21% годовых',
+		description: 'Ожидаемая доходность',
+	},
+	{
+		icon: <LuHandshake />,
+		title: 'Договор мудараба',
+		description: 'Партнёрство в прибыли',
+	},
+	{
+		icon: <LuScale />,
+		title: 'Без риба',
+		description: 'Соответствие нормам шариата',
+	},
+	{
+		icon: <LuCalendarClock />,
+		title: 'От 3 месяцев',
+		description: 'Гибкий срок инвестирования',
+	},
+];
+
+export const investFaq = [
+	{
+		title: 'Что такое договор мудараба?',
+		content:
+			'Это партнёрство, в котором инвестор вкладывает капитал, а IBR GROUP управляет им в торговой деятельности. Прибыль делится между сторонами в заранее оговорённой пропорции, без начисления процентов.',
+	},
+	{
+		title: 'Гарантирована ли доходность?',
+		content:
+			'Нет. По нормам шариата гарантированный процент запрещён, поэтому 21% — это ожидаемая доходность, рассчитанная по результатам прошлых периодов. Фактическая прибыль зависит от результатов деятельности компании.',
+	},
+	{
+		title: 'Какая минимальная и максимальная сумма?',
+		content:
+			'Минимальная сумма — 250 000 ₽, максимальная по одному договору — 3 000 000 ₽. Для больших сумм можно заключить несколько договоров.',
+	},
+	{
+		title: 'Как выплачивается прибыль?',
+		content:
+			'Ежемесячно, ежеквартально или в конце срока — периодичность выбирается при заключении договора.',
+	},
+	{
+		title: 'Можно ли вернуть средства досрочно?',
+		content:
+			'Да, досрочное расторжение возможно по условиям договора. Менеджер подробно расскажет о порядке возврата на консультации.',
 	},
 ];
 
@@ -983,11 +1023,13 @@ export const ROUTES = {
 	aboutUs: '/about-us',
 	service: '/service',
 	webDevelopmentAgencies: '/web-development-agencies',
+	ibrInvest: '/ibr-invest',
 } as const;
 
 export const NAV_ITEMS: { path: string; label: string }[] = [
 	{ path: ROUTES.installment, label: 'Рассрочка' },
 	{ path: ROUTES.ibrmarket, label: 'Маркетплейс' },
+	{ path: ROUTES.ibrInvest, label: 'Инвестиции' },
 	{ path: ROUTES.becomePartner, label: 'Партнерство' },
 ];
 
@@ -997,6 +1039,7 @@ export const FOOTER_LINKS = [
 		links: [
 			{ label: 'Рассрочка', link: ROUTES.installment },
 			{ label: 'Маркетплейс', link: ROUTES.ibrmarket },
+			{ label: 'Инвестиции', link: ROUTES.ibrInvest },
 			{ label: 'Партнёрство', link: ROUTES.becomePartner },
 		],
 	},
@@ -1042,6 +1085,14 @@ export const recommendation = [
 		imageUrl: '/howtowork.webp',
 		altText: 'Справки и госуслуги',
 		item: { link: ROUTES.aboutUs },
+	},
+	{
+		id: 5,
+		title: 'IBR Invest',
+		description: 'Инвестируйте по нормам шариата с ожидаемой доходностью до 21% годовых',
+		imageUrl: '/invest.webp',
+		altText: 'Инвестиции IBR Invest',
+		item: { link: ROUTES.ibrInvest },
 	},
 ];
 
