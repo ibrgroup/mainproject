@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="До 16% годовых">
+  <defs>
+    <linearGradient id="pedestal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b3a4a"/>
+      <stop offset="0.35" stop-color="#062233"/>
+      <stop offset="1" stop-color="#020b14"/>
+    </linearGradient>
+    <linearGradient id="digits" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6fe0dc"/>
+      <stop offset="1" stop-color="#2fa9a5"/>
+    </linearGradient>
+    <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#9aa4b8"/>
+      <stop offset="1" stop-color="#e6ebf5"/>
+    </linearGradient>
+    <linearGradient id="percent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff5a45"/>
+      <stop offset="1" stop-color="#d42f1e"/>
+    </linearGradient>
+  </defs>
+  <rect x="110" y="445" width="580" height="355" rx="18" fill="url(#pedestal)"/>
+  <rect x="110" y="440" width="580" height="10" rx="5" fill="#57cfcb" opacity="0.6"/>
+  <g font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900">
+    <text x="130" y="438" font-size="330" fill="#1b2433" transform="translate(14 10)" letter-spacing="-10">16</text>
+    <text x="130" y="438" font-size="330" fill="url(#digits)" stroke="url(#chrome)" stroke-width="8" paint-order="stroke" letter-spacing="-10">16</text>
+    <text x="520" y="438" font-size="190" fill="url(#percent)" stroke="url(#chrome)" stroke-width="6" paint-order="stroke">%</text>
+  </g>
+</svg>

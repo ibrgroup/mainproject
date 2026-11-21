@@ -44,6 +44,20 @@ export const Recommendation: React.FC = () => {
             />
           ))}
         </div>
+
+        <div className="max-container m-auto grid grid-cols-1 gap-10 mt-10">
+          {recommendation.slice(4).map((rec) => (
+            <CardComponent
+              key={rec.id}
+              id={rec.id}
+              title={rec.title}
+              description={rec.description}
+              imageUrl={rec.imageUrl}
+              altText={rec.altText}
+              item={rec.item || {} as LinkItem}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
