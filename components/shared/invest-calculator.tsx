@@ -6,6 +6,8 @@ import { ContributionMonthSelect } from './contribution-month-select';
 import { ContributionResultDisplay } from './contribution-result-display';
 import { ContributionForm } from './сontribution-form';
 import { ParagraphSize } from './paragraph';
+import OpenContribution from './open-contribution';
+import InvestFaq from './invest-faq';
 import { INVEST_MIN_AMOUNT, INVEST_RATE } from '@/constants/index';
 
 const MONTH_LABELS: Record<number, string> = {
@@ -17,7 +19,7 @@ const MONTH_LABELS: Record<number, string> = {
 	36: '3 года',
 };
 
-export const InvestCalculator: React.FC = () => {
+const InvestCalculatorSection: React.FC = () => {
 	const [count, setCount] = useState<number>(500000);
 	const [countInput, setCountInput] = useState<string>('');
 	const [month, setMonth] = useState<number>(12);
@@ -61,3 +63,13 @@ export const InvestCalculator: React.FC = () => {
 		</section>
 	);
 };
+
+const InvestCalculator: React.FC = () => (
+	<>
+		<InvestCalculatorSection />
+		<OpenContribution />
+		<InvestFaq />
+	</>
+);
+
+export default InvestCalculator;

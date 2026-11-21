@@ -2,6 +2,9 @@ import React, { ReactNode } from 'react';
 import Image from 'next/image';
 import { investFeatures } from '@/constants/index';
 import { ParagraphSize } from './paragraph';
+import ContributionConditions from './contribution-conditions';
+import ScrollToTop from './scroll-top';
+import CookieConsent from './сookie-сonsent';
 
 interface Feature {
 	title: string;
@@ -20,7 +23,7 @@ const FeatureCard: React.FC<Feature> = React.memo(({ title, description, icon })
 ));
 FeatureCard.displayName = 'FeatureCard';
 
-export const MainIbrInvest: React.FC = () => {
+const IbrInvestHero: React.FC = () => {
 	return (
 		<section className="bg-cyan-blue relative rounded-b-4xl px-4">
 			<div className="max-container m-auto relative isolate overflow-hidden pt-16 lg:flex lg:items-center lg:gap-x-20 lg:pt-0">
@@ -61,3 +64,14 @@ export const MainIbrInvest: React.FC = () => {
 		</section>
 	);
 };
+
+const IbrInvestMain: React.FC = () => (
+	<>
+		<IbrInvestHero />
+		<ContributionConditions />
+		<CookieConsent />
+		<ScrollToTop />
+	</>
+);
+
+export default IbrInvestMain;
